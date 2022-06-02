@@ -75,10 +75,7 @@ class DoSampler:
         self.indep_type = [self._variable_types[var] for var in
                            self._treatment_names + self._target_estimand.get_backdoor_variables()]
         self.density_types = [self._variable_types[var] for var in self._target_estimand.get_backdoor_variables()]
-
-        self.outcome_lower_support = self._data[self._outcome_names].min().values
-        self.outcome_upper_support = self._data[self._outcome_names].max().values
-
+        
         self.logger = logging.getLogger(__name__)
 
     def _sample_point(self, x_z):
